@@ -28,3 +28,14 @@ write.csv(USArrests, file = "data.csv")
 ```{r total crimes, echo=FALSE}
 mean_total_crimes
 ```
+# Second transformation: Calculating the average ratio of Rape against total crimes and saving the data as data_new.csv
+```{r total perc_rape, echo=FALSE}
+USArrests$perc_rape <- USArrests$Rape/USArrests$total_crimes
+mean_perc_rape <- mean(USArrests$perc_rape)
+write.csv(USArrests, file = "data_new.csv")
+```
+
+### Average crimes per 100,000 in USA
+```{r total mean_perc_rape, echo=FALSE}
+mean_perc_rape
+```
