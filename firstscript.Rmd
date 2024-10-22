@@ -1,0 +1,30 @@
+---
+title: "Script for Exercise 1 - PS1"
+author: "Ignacio Orueta"
+date: "2024-10-20"
+output: html_document
+html_document: firstscript.html
+output_dir: "C:\\Users\\iorueta\\Desktop\\PC IGNACIO\\0.LSE\\MPA DSPP\\1. Autumm Term 2024\\MY472 Data for Data Scientists\\Problem Sets\\PS1 (0%)\\my472-at24-ps1-IgnacioOrueta\\Exercise 1\\PS1_Exercise1"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# First transformation: Calculating the average crimes of USA and saving the data as data.csv
+```{r data, echo=FALSE}
+# First function
+data("USArrests") # Loading built-in data
+USArrests['total_crimes'] <- USArrests['Murder'] + USArrests['Assault'] + USArrests['Rape'] # Calculating the total of crimes of the dataset
+
+# Calculate the mean of total crimes in USA
+mean_total_crimes <- mean(USArrests$total_crimes, na.rm = TRUE)
+
+#Saving the data
+write.csv(USArrests, file = "data.csv")
+```
+
+### Average crimes per 100,000 in USA
+```{r total crimes, echo=FALSE}
+mean_total_crimes
+```
